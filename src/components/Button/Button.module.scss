@@ -7,6 +7,7 @@
     border-radius: 4px;
     font-size: 1.6rem;
     font-weight: 700;
+    font-family: var(--font-family);
     cursor: pointer;
     background-color: var(--white);
     border: 1px solid transparent;
@@ -21,6 +22,11 @@
 .icon + .title,
 .title + .icon {
     margin-left: 8px;
+}
+.icon {
+    display: inline-block;
+    width: 20px;
+    text-align: center;
 }
 
 // Button type
