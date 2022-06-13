@@ -4,7 +4,6 @@ import { DefaultLayout } from '@/layouts'
 import { Fragment } from 'react';
 
 function App() {
-    console.log(process.env);
     return (
         <Router>
             <div>
