@@ -10,7 +10,7 @@ import styles from "./Search.module.scss";
 import { faCircleXmark, faSpinner } from "@fortawesome/free-solid-svg-icons";
 import AccountItem from "../../AccountItem";
 import { useDebounce } from "@/components/hooks";
-import * as searchServices from "@/apiServices/searchServices";
+import * as searchService from "@/services/searchService";
 
 const cx = classNames.bind(styles);
 
@@ -33,7 +33,7 @@ const Search = () => {
         const fetchApi = async () => {
             setLoading(true);
 
-            const result = await searchServices.search(debounced);
+            const result = await searchService.search(debounced);
             setSearchResult(result);
 
             setLoading(false);
@@ -60,7 +60,6 @@ const Search = () => {
             setSearchValue(_searchValue);
         }
     }
-
 
     return (
         <div>
@@ -96,7 +95,7 @@ const Search = () => {
 
                     {/* Loading */}
                     {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
-                    <button className={cx('search-btn')}>
+                    <button className={cx('search-btn')} onMouseDown={e => { e.preventDefault(); }}>
                         <SearchIcon />
                     </button>
                 </div>
